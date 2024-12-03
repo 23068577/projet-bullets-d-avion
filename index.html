@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparateur de Billets d'Avion</title>
+    <link rel="stylesheet" href="style.css">  <!-- CSS externe -->
+</head>
+<body>
+    <header>
+        <h1>Comparateur de Billets d'Avion</h1>
+    </header>
+
+    <section id="search-section">
+        <h2>Rechercher un Vol</h2>
+        <form id="search-form">
+            <label for="destination">Destination :</label>
+            <input type="text" id="destination" name="destination" placeholder="Ex. Paris" required>
+
+            <label for="date-depart">Date de départ :</label>
+            <input type="date" id="date-depart" name="date-depart" required>
+
+            <button type="submit" id="search-button">Rechercher</button>
+        </form>
+    </section>
+
+    <section id="results-section">
+        <h2>Résultats de Recherche</h2>
+        <table id="results-table">
+            <thead>
+                <tr>
+                    <th>ID Vol</th>
+                    <th>Compagnie</th>
+                    <th>Destination</th>
+                    <th>Date Départ</th>
+                    <th>Date Arrivée</th>
+                    <th>Prix (€)</th>
+                    <th>Durée</th>
+                    <th>Réserver</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les résultats de recherche seront insérés ici -->
+            </tbody>
+        </table>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Comparateur de Billets d'Avion</p>
+    </footer>
+
+    <script src="app.js"></script>  <!-- JavaScript externe -->
+</body>
+</html>

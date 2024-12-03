@@ -1,0 +1,22 @@
+<?php
+// search_flights.php
+
+require_once 'includes/db.php';
+
+// Récupération des paramètres envoyés via AJAX
+$destination = isset($_GET['destination']) ? $_GET['destination'] : '';
+$date_depart = isset($_GET['date-depart']) ? $_GET['date-depart'] : '';
+
+// Requête pour récupérer les vols correspondant à la recherche
+$sql = "SELECT f.id, c.name AS company_name, f.destination, f.departure_date, f.arrival_date, f.price, f.duration 
+        FROM flights f
+        JOIN companies c ON f.company_id = c.id
+        WHERE f.destination LIKE ? AND f.departure_date = ?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$destination, $date_depart]);
+
+$flights = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Renvoi des résultats en JSON
+echo json_encode($flights);
+?>
